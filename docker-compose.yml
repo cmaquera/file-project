@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  app:
+    container_name: app-file
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/workspaces:cached
+    command: sleep infinity
+    network_mode: service:db
+  db:
+    container_name: db-file
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    environment:
+      SA_PASSWORD: "CMaquera@123456"
+      ACCEPT_EULA: "Y"

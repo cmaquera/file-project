@@ -1,0 +1,11 @@
+{
+  "name": "source",
+  "version": "1.0.0",
+  "description": "Proyecto de procesamiento de archivos en lotes",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "Cesar Maquera",
+  "license": "ISC"
+}

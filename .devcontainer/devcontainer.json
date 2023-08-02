@@ -1,0 +1,8 @@
+{
+    "name": "Node + MSSQL DevContainer",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "app",
+    "remoteUser": "node",    
+    "workspaceFolder": "/workspaces/source",
+    "forwardPorts": [1433]   
+}
