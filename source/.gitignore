@@ -1,1 +1,7 @@
+.idea
+extracted/*
+log.txt
 node_modules
+repository
+.gitignore
+*.zip
