@@ -139,8 +139,18 @@ module.exports = {
         const valid_code = (value) => value.codigo_cui == code;
 
         if(lines.valid_codes.some(valid_code)){
+            data_line = data_line.map((field) => field.replaceAll("'","''"))
             lines.actual_sql.push(`( '${data_line.join("', '")}' )`)
         }
+    },
+
+    getDateTimeString : () => {
+        let today = new Date();
+        let date = today.getFullYear().toString().padStart(2, '0')+'-'+(today.getMonth()+1).toString().padStart(2, '0')+'-'+today.getDate().toString().padStart(2, '0');
+        let time = today.getHours().toString().padStart(2, '0') + ":" + today.getMinutes().toString().padStart(2, '0') + ":" + today.getSeconds().toString().padStart(2, '0');
+        let dateTime = date+' '+time;
+        
+        return dateTime;
     },
 
     getDateTimeString : () => {
@@ -163,7 +173,7 @@ module.exports = {
                 console.log(lines.times_saved + "° : Error save data - " + err)   
             } else {
                 lines.times_saved++ 
-                console.log(lines.times_saved + "° : succesully save data" + utils.getDateTimeString())
+                console.log(lines.times_saved + "° : succesully save data " + utils.getDateTimeString())
             }
               
         })
@@ -174,7 +184,7 @@ module.exports = {
         const log_message = `${timestamp} - ${err}\n`;
         const log_insert_query = data.join(', \n')
         const log_data = log_message + log_insert_query
-        const file_name = `logs/${times}-${err}-${timestamp}.log`
+        const file_name = `logs/${times}-${timestamp}.log`
 
         fs.appendFile(file_name, log_data, (err) => {
             if (err) {

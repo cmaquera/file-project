@@ -4,7 +4,7 @@
   "description": "Proyecto de procesamiento de archivos en lotes",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js"
+    "start": "node app.js"
   },
   "author": "Cesar Maquera",
   "license": "ISC",

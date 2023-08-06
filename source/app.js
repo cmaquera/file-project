@@ -47,12 +47,11 @@ function mainFunction() {
                 .on('data', (data) => {                    
                     utils.buildQueryLineValues(data, lines)
 
-                    if(lines.actual_sql.length === 500){
+                    if(lines.actual_sql.length === 1000){
                         let insert_query = sql_head+lines.actual_sql.join(', ');
                         
                         lines.history_sql.push(lines.actual_sql)
                         lines.actual_sql = []
-                        
                         request.query(insert_query, (err) => {                                
                             if(err){
                                 utils.writeLog(lines.times_saved, err, lines.history_sql[lines.history_sql.length - 1])
