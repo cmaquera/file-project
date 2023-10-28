@@ -47,7 +47,7 @@ function mainFunction() {
                 .on('data', (data) => {                    
                     utils.buildQueryLineValues(data, lines)
 
-                    if(lines.actual_sql.length === 1000){
+                    if(lines.actual_sql.length === 100){
                         let insert_query = sql_head+lines.actual_sql.join(', ');
                         
                         lines.history_sql.push(lines.actual_sql)

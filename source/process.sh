@@ -1,4 +1,4 @@
-folder="/workspaces/source/repository/downloaded"
+folder="/workspaces/file-project/source/repository/downloaded"
 fileName="2023-Gasto-Diario.csv"
 file="$folder/$fileName"
 
